@@ -19,8 +19,7 @@ export default class Inventario {
   public idInventario: number;
 
   @ManyToOne(() => Producto)
-  @JoinColumn({ name: 'idProducto' })
-  @Index()
+  @JoinColumn({ name: 'idProducto' })  // Especificar el nombre correcto de la columna aquí
   public idProducto: Producto;
 
   @Column({ type: 'int' })
@@ -74,10 +73,7 @@ export default class Inventario {
 
   public static async buscarPorId(idInventario: number): Promise<Inventario> {
     const repositorioInventario = await Inventario.obtenerRepositorioInventario();
-    const inventario = await repositorioInventario.findOne({
-      where: { idInventario },
-      relations: ['idProducto']
-    });
+    const inventario = await repositorioInventario.findOne({});
 
     if (!inventario) {
       throw new Error('ErrorProductoNoEncontrado');
@@ -91,7 +87,7 @@ export default class Inventario {
     return repositorioInventario.find();
   }
 
-  private static async obtenerRepositorioInventario(): Promise<Repository<Inventario>> {
+  public static async obtenerRepositorioInventario(): Promise<Repository<Inventario>> {
     const databaseConnection = await DatabaseConnection.getConnectedInstance();
     return databaseConnection.getRepository(Inventario);
   }
