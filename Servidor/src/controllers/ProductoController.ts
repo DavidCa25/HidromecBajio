@@ -26,7 +26,7 @@ export default class ProductoController extends Controller{
 
     private async registrarProducto(req: Request, res: Response): Promise<void>{
         try{
-            const{codigo, producto, descripcion, categoria, precio, cantidad, fechaCreacion, fechaActualizacion} = <RegistroProductoRequestBody>(
+            const{codigo, producto, descripcion, categoria, precio, cantidad} = <RegistroProductoRequestBody>(
                 req.body
             );
             if(!codigo || !producto || !descripcion || !categoria || !precio || !cantidad){
@@ -45,7 +45,7 @@ export default class ProductoController extends Controller{
 
             res.status(HttpStatusCodes.CREATED).json({
                 mensaje: 'Producto registrado correctamente.',
-                
+                producto: agregarProducto
             });
         }catch(e){
             if (e instanceof Error && e.message === 'ErrorCodigoProductoDuplicado') {

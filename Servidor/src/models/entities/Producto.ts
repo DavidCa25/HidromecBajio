@@ -9,6 +9,8 @@ import {
     QueryFailedError,
   } from 'typeorm';
   import DatabaseConnection from '../../database/DatabaseConnection';
+import HistorialInventario from './HistorialInventario';
+import Inventario from './Inventario';
   
   @Entity({ name: 'Producto' })
   export default class Producto {
@@ -86,18 +88,38 @@ import {
         fechaCreacion,
         fechaActualizacion        
       );
-      try{
+      try {
         await repositorioProducto.save(newProducto);
-      }catch(e){
+  
+        
+        const inventario = new Inventario(
+          undefined,
+          newProducto,
+          0, 
+          100, 
+          cantidad,
+          new Date()
+        );
+        await Inventario.obtenerRepositorioInventario().then(repo => repo.save(inventario));
+  
+        
+        const historialInventario = new HistorialInventario(
+          undefined,
+          newProducto,
+          cantidad,
+          'entrada',
+          new Date()
+        );
+        await HistorialInventario.obtenerRepositorioHistorial().then(repo => repo.save(historialInventario));
+  
+      } catch (e) {
         if (e instanceof QueryFailedError && e.message.includes('ER_DUP_ENTRY')) {
           throw new Error('ErrorNombreUsuarioDuplicado');
         }
-  
         throw e;
       }
-      return newProducto
+      return newProducto;
     }
-    
 
     public async actualizarProducto(
       codigo: string, 
