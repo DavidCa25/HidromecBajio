@@ -1,57 +1,45 @@
 <mat-card class="cardWithShadow theme-card">
     <mat-card-header>
-      <mat-card-title class="m-b-0">Badges</mat-card-title>
+      <mat-card-title class="m-b-0">Agregar productos</mat-card-title>
     </mat-card-header>
     <mat-card-content class="b-t-1">
       <mat-card class="b-1 shadow-none">
         <mat-card-content>
-          <p>
-            <span matBadge="4" matBadgeOverlap="false" class="f-w-500 text-muted">Text with a badge</span>
-          </p>
+            <form>
+                <!-- codigo: string,
+                    producto: string,
+                    descripcion: string | null,
+                    categoria: string,
+                    precio: number,
+                    cantidad: number,  -->
+                <div class="form-group">
+                    <label for="name">Codigo</label>
+                    <input type="text" class="form-control ng-untouched ng-pristine ng-valid" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Producto</label>
+                    <input type="text" class="form-control ng-untouched ng-pristine ng-valid" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">descripcion</label>
+                    <input type="text" class="form-control ng-untouched ng-pristine ng-valid" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Categoria</label>
+                    <input type="text" class="form-control ng-untouched ng-pristine ng-valid" id="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Precio</label>
+                    <input type="text" class="form-control ng-untouched ng-pristine ng-valid" id="name" required>
+                </div> 
+                <div class="form-group">
+                    <label for="name">Cantidad</label>
+                    <input type="text" class="form-control ng-untouched ng-pristine ng-valid" id="name" required>
+                </div> 
+                            
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
         </mat-card-content>
       </mat-card>
-  
-      <mat-card class="b-1 shadow-none">
-        <mat-card-content>
-          <p>
-            <span matBadge="4" matBadgeOverlap="false" matBadgeSize="large" class="f-w-500 text-muted">Text with large
-              badge</span>
-          </p>
-        </mat-card-content>
-      </mat-card>
-  
-      <mat-card class="b-1 shadow-none">
-        <mat-card-content>
-          <p class="f-w-500 text-muted">
-            Button with a badge on the left
-            <button mat-flat-button color="primary" matBadge="8" matBadgePosition="before" matBadgeColor="accent">
-              Action
-            </button>
-          </p>
-        </mat-card-content>
-      </mat-card>
-  
-      <mat-card class="b-1 shadow-none">
-        <mat-card-content>
-          <p class="f-w-500 text-muted">
-            Icon with a badge
-            <mat-icon matBadge="15" matBadgeColor="warn">home</mat-icon>
-          </p>
-        </mat-card-content>
-      </mat-card>
-  
-      <mat-card class="b-1 shadow-none">
-        <mat-card-content>
-          <p>
-            Button toggles badge visibility
-            <button mat-flat-button color="primary" matBadge="7" [matBadgeHidden]="hidden" (click)="toggleBadgeVisibility()">
-              Hide
-            </button>
-          </p>
-        </mat-card-content>
-      </mat-card>
-  
-  
-  
     </mat-card-content>
   </mat-card>
