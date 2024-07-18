@@ -8,5 +8,5 @@ import { AppSideLoginComponent } from './pages/authentication/login/login.compon
   
 })
 export class AppComponent {
-  title = 'Modernize Angular Admin Tempplate';
+  title = 'Hidromec Bajio';
 }

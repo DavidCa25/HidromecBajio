@@ -26,6 +26,13 @@ const routes: Routes = [
           ),
       },
       {
+        path: 'product',
+        loadChildren: () =>
+          import('./pages/product/product.module').then(
+            (m) => m.ProductoscomponentsModule
+          ),
+      },
+      {
         path: 'extra',
         loadChildren: () =>
           import('./pages/extra/extra.module').then((m) => m.ExtraModule),
