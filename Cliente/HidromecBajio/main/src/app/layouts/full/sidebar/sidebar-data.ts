@@ -33,6 +33,11 @@ export const navItems: NavItem[] = [
     route: '/ui-components/lists',
   },
   {
+    displayName: 'Agregar Producto',
+    iconName: 'list',
+    route: '/product/form-crear-producto'
+  },
+  {
     displayName: 'Menu',
     iconName: 'layout-navbar-expand',
     route: '/ui-components/menu',

@@ -1,0 +1,50 @@
+<mat-card class="cardWithShadow theme-card">
+    <mat-card-header>
+      <mat-card-title class="m-b-0">Agregar productos</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="b-t-1">
+      <mat-card class="b-1 shadow-none">
+        <mat-card-content>
+            <form [formGroup]="agregarProductoForm" (ngSubmit)="submit()" >
+                <div class="form-group">
+                    <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Codigo</mat-label>
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                    <input matInput formControlName="codigo"  type="text" class="form-control ng-untouched ng-pristine ng-valid" id="codigo" required>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Producto</mat-label>
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                    <input matInput  formControlName="producto"  type="text" class="form-control ng-untouched ng-pristine ng-valid" id="producto" required>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Descripcion</mat-label>
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                    <input matInput formControlName="descripcion"  type="text" class="form-control ng-untouched ng-pristine ng-valid" id="descripcion" required>
+                    </mat-form-field>
+                </div> 
+                <div class="form-group">
+                    <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Categoria</mat-label>
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                    <input matInput formControlName="categoria" type="text" class="form-control ng-untouched ng-pristine ng-valid" id="categoria" required>
+                    </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Precio</mat-label>
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                    <input matInput formControlName="precio" type="number" class="form-control ng-untouched ng-pristine ng-valid" id="precio" required>
+                    </mat-form-field>
+                </div> 
+                <div class="form-group">
+                    <mat-label class="mat-subtitle-2 f-s-14 f-w-600 m-b-12 d-block">Cantidad</mat-label>
+                    <mat-form-field appearance="outline" class="w-100" color="primary">
+                    <input matInput formControlName="cantidad" type="number" class="form-control ng-untouched ng-pristine ng-valid" id="cantidad" required>
+                    </mat-form-field>
+                </div>                           
+                <button type="submit" class="btn btn-primary">Agregar Producto</button>
+            </form>
+        </mat-card-content>
+      </mat-card>
+    </mat-card-content>
+  </mat-card>
