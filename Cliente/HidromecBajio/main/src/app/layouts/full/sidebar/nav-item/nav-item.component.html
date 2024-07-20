@@ -1,6 +1,9 @@
 <div mat-subheader *ngIf="item.navCap" class="nav-caption">
   {{ item.navCap }}
 </div>
+<ng-container *ngIf="item.customComponent;">
+  <ng-container *ngComponentOutlet="item.customComponent"></ng-container>
+</ng-container>
 <a
   mat-list-item
   (click)="onItemSelected(item)"

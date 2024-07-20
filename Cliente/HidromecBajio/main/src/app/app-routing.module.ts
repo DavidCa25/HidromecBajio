@@ -19,6 +19,13 @@ const routes: Routes = [
           import('./pages/pages.module').then((m) => m.PagesModule),
       },
       {
+        path: 'inventory',
+        loadChildren: () =>
+          import('./pages/inventory/inventory.module').then(
+            (m) => m.inventorycomponentsModule
+          ),
+      },
+      {
         path: 'ui-components',
         loadChildren: () =>
           import('./pages/ui-components/ui-components.module').then(
