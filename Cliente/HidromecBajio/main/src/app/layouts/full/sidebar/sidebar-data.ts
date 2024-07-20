@@ -12,7 +12,7 @@ export const navItems: NavItem[] = [
   {
     displayName: 'Inventory',
     iconName: 'layout-dashboard',
-    route: '/inventory',
+    route: '/inventory/inventoryView',
   },
   {
     navCap: 'Ui Components',
