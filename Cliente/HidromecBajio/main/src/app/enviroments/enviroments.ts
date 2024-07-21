@@ -5,6 +5,7 @@ export const environment = {
       auth: 'http://localhost:3001/auth',
       producto: 'http://localhost:3001/producto',
       venta: 'http://localhost:3001/venta',
+      inventory: 'http://localhost:3001/inventario'
     }
   };
   
