@@ -19,7 +19,7 @@ export default class Inventario {
   public idInventario: number;
 
   @ManyToOne(() => Producto)
-  @JoinColumn({ name: 'idProducto' })  // Especificar el nombre correcto de la columna aquí
+  @JoinColumn({ name: 'idProducto' })  
   public idProducto: Producto;
 
   @Column({ type: 'int' })
@@ -32,7 +32,7 @@ export default class Inventario {
   public cantidad: number;
 
   @CreateDateColumn()
-  public fechaEntrada: Date;
+  public fechaEntrada?: Date;
 
   constructor(
     idInventario: number | undefined,
@@ -73,19 +73,25 @@ export default class Inventario {
 
   public static async buscarPorId(idInventario: number): Promise<Inventario> {
     const repositorioInventario = await Inventario.obtenerRepositorioInventario();
-    const inventario = await repositorioInventario.findOne({});
+    const inventario = await repositorioInventario.findOne({
+        where: { idInventario },
+        relations: ["idProducto"]  // Asegúrate de incluir esta opción
+    });
 
     if (!inventario) {
-      throw new Error('ErrorProductoNoEncontrado');
+        throw new Error('ErrorProductoNoEncontrado');
     }
 
     return inventario;
-  }
+}
+
+
+
 
   public static async consultarTodos(): Promise<Inventario[]> {
     const repositorioInventario = await Inventario.obtenerRepositorioInventario();
-    return repositorioInventario.find();
-  }
+    return repositorioInventario.find({ relations: ["idProducto"] }); 
+}
 
   public static async obtenerRepositorioInventario(): Promise<Repository<Inventario>> {
     const databaseConnection = await DatabaseConnection.getConnectedInstance();

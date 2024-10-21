@@ -58,12 +58,13 @@ export class AppFormProductoComponent implements OnInit{
   submit() {
     if(this.agregarProductoForm.valid){
       const productoForm: Producto = {
+
         codigo: this.agregarProductoForm.get('codigo')?.value,
         producto: this.agregarProductoForm.get('producto')?.value,
         descripcion: this.agregarProductoForm.get('descripcion')?.value,
         categoria: this.agregarProductoForm.get('categoria')?.value,
         precio: this.agregarProductoForm.get('precio')?.value,
-        cantidad: this.agregarProductoForm.get('cantidad')?.value,
+        cantidad: this.agregarProductoForm.get('cantidad')?.value
       }   
 
       this._productoService.addProducto(productoForm).subscribe(response =>{
